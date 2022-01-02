@@ -26,6 +26,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -44,9 +48,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
 
 
+    // Ok http interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+
+
     // Hilt implementation
     implementation 'com.google.dagger:hilt-android:2.38.1'
-    annotationProcessor 'com.google.dagger:hilt-android-compiler:2.33-beta'
+    annotationProcessor 'com.google.dagger:hilt-android-compiler:2.38.1'
 
     // Retrofit implementation
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_text_size">10sp</dimen>
+
+    <dimen name="big_text_size">20sp</dimen>
+    <dimen name="large_text_size">20sp</dimen>
+    <dimen name="profile_image_width">100dp</dimen>
+    <dimen name="upload_profile_image_width">28dp</dimen>
+    <dimen name="upload_profile_small_text_size">16sp</dimen>
+    <dimen name="profile_marginLeft_text">30dp</dimen>
+    <dimen name="toolbar_leftBackArrow_widthAndSizer">30dp</dimen>
+    <dimen name="viewpager_next_item_visible">0dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">0dp</dimen>
+    <dimen name="verySmallCardViewSIze">30dp</dimen>
+    <dimen name="viewpager_next_item_visible_room">10dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin_room">10dp</dimen>
+</resources>
