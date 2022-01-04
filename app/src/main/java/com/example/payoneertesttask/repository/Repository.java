@@ -32,11 +32,9 @@ public class Repository {
                 if (response.isSuccessful()){
                     assert response.body() != null;
                     liveData.postValue(Resource.success(response.body()));
-//                    return Resource.error()
-//                    liveData.postValue((response.body().getNetworks()).getApplicable());
-//                    liveData.postValue(response.body());
                 } else {
-                    liveData.postValue(Resource.error(response.message(),liveData));
+                    assert response.body() != null;
+                    liveData.postValue(Resource.error(response.message(), response.body()));
                 }
             }
 

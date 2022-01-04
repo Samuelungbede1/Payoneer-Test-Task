@@ -31,8 +31,8 @@ public class Resource<T> {
         return new Resource<T>(Status.SUCCESS, data, null);
     }
 
-    public static <T> Resource<T> error(@NonNull String msg, @Nullable MutableLiveData<Resource<ApiResponse>>  data) {
-        return new Resource<T>(Status.ERROR, (T) data, msg);
+    public static <T> Resource<T> error(@NonNull String msg, @NonNull T  data) {
+        return new Resource<T>(Status.ERROR, data, msg);
     }
 
 
@@ -41,6 +41,6 @@ public class Resource<T> {
         return new Resource<>(Status.LOADING, data, null);
     }
 
-    public enum Status { SUCCESS, ERROR, LOADING}
+    public enum Status { SUCCESS, ERROR, LOADING,N0_CONNECTION}
 }
 
