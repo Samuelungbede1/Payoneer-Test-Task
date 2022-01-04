@@ -8,6 +8,7 @@ import com.example.payoneertesttask.data.ApiResponse;
 import com.example.payoneertesttask.data.Applicable;
 import com.example.payoneertesttask.network.ApiServices;
 import com.example.payoneertesttask.repository.Repository;
+import com.example.payoneertesttask.utils.Resource;
 
 import java.util.List;
 
@@ -17,7 +18,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
 public class MainViewModel extends ViewModel implements LifecycleObserver {
-    MutableLiveData<List<Applicable>> liveData;
+//    MutableLiveData<List<Applicable>> liveData;
+      MutableLiveData<Resource<ApiResponse>> liveData;
+
+
+//    private final PaymentsRepository paymentsRepository;
+//
+//    @Inject
+//    public PaymentsViewModel(PaymentsRepository paymentsRepository) {
+//        this.paymentsRepository = paymentsRepository;
+//    }
+
+
+
 
     @Inject
     ApiServices apiServices;
@@ -27,13 +40,17 @@ public class MainViewModel extends ViewModel implements LifecycleObserver {
         liveData = new MutableLiveData();
     }
 
-    public MutableLiveData<List<Applicable>> getLiveData(){
+//    public MutableLiveData<List<Applicable>> getLiveData(){
+//        return liveData;
+//    }
+    public MutableLiveData<Resource<ApiResponse>> getLiveData(){
         return liveData;
     }
 
 
     public void  getPaymentMethods(){
         Repository repository = new Repository(apiServices);
+//        repository.getPaymentMethods(liveData);
         repository.getPaymentMethods(liveData);
     }
 }

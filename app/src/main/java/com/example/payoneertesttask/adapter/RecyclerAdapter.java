@@ -16,6 +16,8 @@ import com.example.payoneertesttask.data.Applicable;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
+
+
     private List<Applicable> listItems;
     public  void setListItems ( List<Applicable> listItems){
         this.listItems = listItems;

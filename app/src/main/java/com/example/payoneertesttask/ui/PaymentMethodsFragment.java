@@ -20,9 +20,11 @@ import android.widget.Toast;
 
 import com.example.payoneertesttask.R;
 import com.example.payoneertesttask.adapter.RecyclerAdapter;
+import com.example.payoneertesttask.data.ApiResponse;
 import com.example.payoneertesttask.data.Applicable;
 import com.example.payoneertesttask.databinding.FragmentPaymentMethodsBinding;
 import com.example.payoneertesttask.databinding.PaymentMethodItemBinding;
+import com.example.payoneertesttask.utils.Resource;
 import com.example.payoneertesttask.viewmodel.MainViewModel;
 
 import java.util.Arrays;
@@ -72,17 +74,39 @@ public class PaymentMethodsFragment extends Fragment {
 
 
     public void initViewModel (){
-        paymentMethodViewModel.getLiveData().observe(getViewLifecycleOwner(), new Observer<List<Applicable>>() {
-            @Override
-            public void onChanged(List<Applicable> applicable) {
-                if (applicable !=null) {
-                    recyclerViewAdapter.setListItems(applicable);
-                    recyclerViewAdapter.notifyDataSetChanged();
-                }
-            }
-        });
         paymentMethodViewModel.getPaymentMethods();
-    }
+        paymentMethodViewModel.getLiveData().observe(getViewLifecycleOwner(), new Observer<Resource<ApiResponse>>() {
+                    @Override
+                    public void onChanged(Resource<ApiResponse> apiResponseResource) {
+                        if (apiResponseResource !=null){
+
+                            switch (apiResponseResource.status){
+                                case LOADING:{
+                                    binding.progressCircular.setVisibility(View.VISIBLE);
+                                    break;
+                                }
+
+                                case ERROR:{
+                                    binding.progressCircular.setVisibility(View.INVISIBLE);
+                                    break;
+                                }
+
+                                case SUCCESS:{
+                                    if (apiResponseResource.data!=null) {
+                                                recyclerViewAdapter.setListItems(apiResponseResource.data.getNetworks().getApplicable());
+                                                recyclerViewAdapter.notifyDataSetChanged();
+                                    }
+                                    binding.progressCircular.setVisibility(View.INVISIBLE);
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+        });
 
 
-}
+
+                    }
+                }
+
