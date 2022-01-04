@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
-public class MainViewModel extends ViewModel implements LifecycleObserver {
+public class MethodsOfPaymentViewModel extends ViewModel implements LifecycleObserver {
 //    MutableLiveData<List<Applicable>> liveData;
       MutableLiveData<Resource<ApiResponse>> liveData;
 
@@ -36,7 +36,7 @@ public class MainViewModel extends ViewModel implements LifecycleObserver {
     ApiServices apiServices;
 
     @Inject
-    public MainViewModel() {
+    public MethodsOfPaymentViewModel() {
         liveData = new MutableLiveData();
     }
 
